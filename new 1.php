@@ -2,16 +2,34 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$db = 'users';
+$db = '';
 
 $conn = new mysqli ($host,$user,$password,$db);
 if($conn->connect_error) {
-	echo 'Sikeres kapcsolódás adatbázishoz!'}
+	echo 'Sikeres kapcsolódás adatbázishoz!';}
 echo 'Sikeres db kapcsolódás!';
+
+?>
+<?php
+session_start();
 ?>
 
-<form method="POST">
-	Felhasználó:<br>
-	<input type="text" name="username"><br>
-	Jelszó:<br>
-	<input type="text" name=""<<br>
+<!DOCTYPE html>
+<html>
+<body>
+<br>
+
+<?php
+$_SESSION["color"] = "brown";
+$_SESSION["kutyatip"] = "dog";
+echo "Bevan állítva a változó";
+print_r($_SESSION);
+?>
+<form id = login method = "POST" action = "">
+	<input id = "unname" name = "uname" type = "text" > 
+	<input id = "pwd" name = "pwd" type = "password" >
+	<input id = "ok" name = "okBtn" type = "submit" >
+</form>
+
+</body>
+</html>
