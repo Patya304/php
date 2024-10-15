@@ -36,13 +36,13 @@
     {
 	margin           : 32px auto    ;
 	width            : 920px        ;
-  min-height       : 480px        ;
+	min-height       : 480px        ;
     }
 
     div#lablec
     {
-  background-color : #AAA         ;
-  color            : #FFF         ;
+	background-color : #666         ;
+	color            : #FFF         ;
     }
 
   </style>
@@ -75,17 +75,24 @@
 ?>
 
     </div>
-    
-    <div id='lablec'>
-      &copy; enoldalam.hu - 2024.
-      <div style='float:right;'>
-<?php
-    $honapok = array( "", "január", "február", "március", "április", "május", "junius", "julius", "augusztus", "szeptember", "oktober", "november", "december");
-    $napnevek = array("", "hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat", "vasarnap");
-    print date("Y. ") . $honapok[date("n")] . date(" d., ") . $napnevek[date("N")];
-?>
-    </div>
 
+    <div id='lablec'>
+
+	&copy; enoldalam.hu - 2024.
+
+	<div style='float:right;'>
+<?php
+	$honapok  = array( "", "január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december" ) ;
+	$napnevek = array( "", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vasárnap" ) ;
+
+	include("nevnapok.php") ;
+	$mainevnap = "Ma ünnepli névnapját: " . nevnapos( date("Y") , date("n") , date("j")  ) ;
+
+	print date("Y. ") . $honapok[date("n")] . date(" d., ") . $napnevek[date("N")] . " - " . $mainevnap ;
+?>
+	</div>
+
+    </div>
 
   </body>
 </html>
